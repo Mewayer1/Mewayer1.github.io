@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eutychia Strategic Advisory Limited</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --primary: #1a4780;
+            --primary‑light: #2b60a8;
+            --bg‑page: #f4f7fb;
+            --bg‑card: #ffffff;
+            --text‑main: #1f2937;
+            --text‑sub: #4b5563;
+            --border‑soft: #dbe4f0;
+        }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            color: var(--text‑main);
+            background-color: var(--bg‑page);
+            line-height: 1.8;
+        }
+        nav {
+            background-color: var(--primary);
+            padding: 1rem 2rem;
+            position: sticky;
+            top:0;
+            z-index:10;
+        }
+        nav .container {
+             max-width: 1300px;
+            margin:0 auto;
+            display:flex;
+            justify-content: space-between;
+            align-items:center;
+        }
+        .logo {
+            color:#fff;
+            font-size:1.2rem;
+            font-weight:bold;
+            white-space: nowrap;
+        }
+        .nav-links {
+            display:flex;
+            align-items:center;
+            gap: 1.8rem;
+        }
+        .nav-links a {
+            color:#c5d4e8;
+            text-decoration:none;
+            margin-left:0;
+            transition: color 0.2s ease;
+            white-space: nowrap;
+        }
+        .nav-links a:hover {
+            color:#ffffff;
+        }
+        .lang-btn{
+            background:transparent;
+            border:1px solid rgba(255,255,255,0.4);
+            color:#fff;
+            padding:4px 12px;
+            border-radius:4px;
+            cursor:pointer;
+            margin-left:0;
+        }
+        .lang-btn:hover{
+            background:rgba(255,255,255,0.2);
+        }
+        section {
+            padding:4rem 2rem;
+        }
+        .container {
+            max-width: 1100px;
+            margin:0 auto;
+        }
+        .hero {
+            background: linear-gradient(135deg, rgba(26, 71, 128, 0.82), rgba(37, 84, 148, 0.82)), url("images/banner-cities.jpg");
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            color:white;
+            text-align:center;
+            padding:6rem 2rem;
+        }
+        .hero h1 {
+            font-size:2.4rem;
+            margin-bottom:1rem;
+        }
+        .hero p {
+            font-size:1.2rem;
+            opacity:0.92;
+        }
+        h2 {
+            font-size:2rem;
+            margin-bottom:2rem;
+            color:var(--primary);
+            text-align:center;
+        }
+        .about-text {
+            max-width:800px;
+            margin:0 auto;
+            font-size:1.15rem;
+            color:var(--text‑sub);
+            text-align:justify;
+        }
+        /*代表成果区域*/
+       .achievement-wrap{
+    max-width:820px;
+    margin:0 auto;
+}
+.achievement-item{
+    background:#ffffff;
+    border:1px solid var(--border‑soft);
+    border-radius:12px;
+    padding:1.2rem 1.6rem;
+    margin-bottom:1rem;
+    box-shadow:0 2px 8px rgba(26,71,128,0.05);
+}
+.achievement-time{
+    color:var(--primary);
+    font-weight:bold;
+    margin-right:0.5rem;
+}
+        /*语言切换基础，重要：删掉之前强制block的错误css*/
+        .cn{display:none;}
+        .en{display:none;}
+
+/* ===== 我们的研究范围 #scope 区块样式 ===== */
+#scope {
+    padding: 60px 2rem;
+    background-color: #f5f7fa;
+}
+#scope h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #1a4080;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+.works-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+.work-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(26, 64, 128, 0.08);
+    height: 100%;
+}
+.card-body {
+    padding: 36px 32px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.work-card h3 {
+    font-size: 1.4rem;
+    color: #1a4080;
+    margin: 0 0 24px 0;
+}
+.work-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.work-card:first-child ul {
+    justify-content: flex-start;
+}
+.work-card li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 16px;
+    line-height: 1.65;
+}
+.work-card li::before {
+    content: "●";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: #2b579a;
+    font-size: 0.7rem;
+}
+
+@media (max-width: 768px) {
+    .works-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.process-intro {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
+    color: var(--text‑sub);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+.process-timeline {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+}
+.process-timeline::before {
+    content: "";
+    position: absolute;
+    left: 22px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--primary), var(--primary‑light));
+    opacity: 0.15;
+}
+.process-item {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+    align-items: flex-start; /*修复圆圈数字位置过高，顶部对齐*/
+}
+.process-number {
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    z-index: 2;
+    margin-top:4px; /*微调向下偏移，对齐文字*/
+}
+.process-content {
+    flex: 1;
+    background: var(--bg‑card);
+    border: 1px solid var(--border‑soft);
+    border-radius: 12px;
+    padding: 1.2rem 1.4rem;
+    box-shadow: 0 2px 12px rgba(26, 71, 128, 0.06);
+}
+.process-content h3 {
+    margin-bottom: 0.6rem;
+    color: var(--primary);
+    font-size: 1.25rem;
+}
+.process-content p {
+    margin: 0;
+    color: var(--text‑sub);
+    line-height: 1.7;
+}
+@media (max-width: 768px) {
+    .process-timeline::before {
+        left: 18px;
+    }
+    .process-item {
+        gap: 1rem;
+    }
+    .process-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+        margin-top:2px;
+    }
+    .process-content {
+        padding: 1rem 1.2rem;
+    }
+}
+/* ===== 正在推进的项目 #ongoing 三列横向布局 ===== */
+#ongoing {
+    padding: 60px 2rem;
+    background-color: #f4f7fb;
+}
+
+#ongoing h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #1a4080;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.ongoing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.ongoing-card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(26, 64, 128, 0.08);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.ongoing-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.ongoing-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.ongoing-card:hover .ongoing-image img {
+    transform: scale(1.03);
+}
+
+.ongoing-body {
+    padding: 24px 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.ongoing-body h3 {
+    font-size: 1.15rem;
+    color: #1a4080;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.ongoing-body p {
+    font-size: 0.95rem;
+    color: #4b5563;
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* 平板屏幕：三列自动变成两列 */
+@media (max-width: 992px) {
+    .ongoing-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* 手机屏幕：变成单列 */
+@media (max-width: 640px) {
+    .ongoing-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ongoing-image {
+        height: 180px;
+    }
+}
+/*联系我们 强制居中修复*/
+.contact-info {
+    text-align:center !important;
+    font-size:1.1rem;
+    color:var(--text‑sub);
+}
+.contact-info p{
+    margin:0.6rem 0;
+}
+
+footer {
+    background-color:#164080;
+    color:#ffffff;
+    text-align:center;
+}
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">Eutychia Strategic Advisory Limited</div>
+            <div class="nav-links">
+                <a href="#home"><span class="cn">首页</span><span class="en">Home</span></a>
+                <a href="#about"><span class="cn">关于我们</span><span class="en">About Us</span></a>
+                <a href="#achievement"><span class="cn">代表研究成果</span><span class="en">Research Achievements</span></a>
+                <a href="#scope"><span class="cn">研究范围</span><span class="en">Research Scope</span></a>
+                <a href="#process"><span class="cn">我们的服务模式</span><span class="en">Our Service Model</span></a>
+                <a href="#ongoing"><span class="cn">正在推进的项目</span><span class="en">Ongoing Projects</span></a>
+                <a href="#contact"><span class="cn">联系</span><span class="en">Contact</span></a>
+                <button class="lang-btn" id="langToggle">English</button>
+            </div>
+        </div>
+    </nav>
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Eutychia Strategic Advisory Limited</h1>
+            <p>
+                <span class="cn">战略咨询服务机构官方网站</span>
+                <span class="en">Official Website of Strategic Advisory Institution</span>
+            </p>
+        </div>
+    </section>
+    <section id="about">
+        <div class="container">
+            <h2>
+                <span class="cn">关于我们</span>
+                <span class="en">About Us</span>
+            </h2>
+            <div class="about-text">
+                <p>
+                    <span class="cn">Eutychia Strategic Advisory Limited 是由牛津等知名高校的年轻研究者组成的独立第三方专业咨询机构。无论是微观层面的细节研判，还是宏观维度的趋势分析，我们拥有足够能力串联多个独立领域，针对每一个棘手复杂的问题，为客户打造高度定制化的专业智库解决方案。</span>
+                    <span class="en">Eutychia Strategic Advisory Limited is an independent third‑party professional consulting institution composed of young researchers from renowned universities including Oxford. From micro‑level detailed judgment to macro‑dimensional trend analysis, we are capable of connecting multiple independent fields to deliver highly customized professional think‑tank solutions for challenging and complex client issues.</span>
+                </p>
+                <br>
+                <p>
+                    <span class="cn">我们依托多元的学术背景与跨学科研究能力，打破领域壁垒，用严谨的研究视角，交付务实可行的咨询成果。</span>
+                    <span class="en">Leveraging diverse academic backgrounds and interdisciplinary research capabilities, we break disciplinary boundaries and deliver practical consulting outputs with rigorous research perspectives.</span>
+                </p>
+            </div>
+        </div>
+    </section>
+    <!--代表研究成果板块【修复时间：时间点做双语】-->
+    <section id="achievement">
+        <div class="container">
+            <h2>
+                <span class="cn">代表研究成果</span>
+                <span class="en">Research Achievements</span>
+            </h2>
+            <div class="achievement-wrap">
+                <div class="achievement-item">
+                    <span class="achievement-time"><span class="cn">2020年3月</span><span class="en">2020‑03</span></span>
+                    <span class="cn">预判新冠疫情冲击导致全球降息与经济刺激计划。</span>
+                    <span class="en">Predicted global interest‑rate cuts and economic stimulus packages triggered by the COVID‑19 shock.</span>
+                </div>
+                <div class="achievement-item">
+                    <span class="achievement-time"><span class="cn">2022年夏</span><span class="en">Summer 2022</span></span>
+                    <span class="cn">预判南希·佩洛西前往台湾不会引发台海战争。</span>
+                    <span class="en">Predicted that Nancy Pelosi’s visit to Taiwan would not trigger cross‑strait military conflict.</span>
+                </div>
+                <div class="achievement-item">
+                    <span class="achievement-time"><span class="cn">2023年年中</span><span class="en">Mid‑2023</span></span>
+                    <span class="cn">预判中国新能源行业（光伏风电、锂电池）迎来长期的产能过剩且难以改变。</span>
+                    <span class="en">Predicted persistent, hard‑to‑resolve overcapacity within China’s new‑energy sectors (solar‑wind power, lithium‑ion batteries).</span>
+                </div>
+                <div class="achievement-item">
+                    <span class="achievement-time"><span class="cn">2023年末‑2024年初</span><span class="en">Late 2023‑Early 2024</span></span>
+                    <span class="cn">预判中国证监会负责人即将迎来更换。</span>
+                    <span class="en">Predicted upcoming leadership turnover at China Securities Regulatory Commission.</span>
+                </div>
+                <div class="achievement-item">
+                    <span class="achievement-time"><span class="cn">2025年3月</span><span class="en">Mar‑2025</span></span>
+                    <span class="cn">预判中美关税战将在2个月内迎来逆转和休战。</span>
+                    <span class="en">Predicted a reversal and truce in China‑US tariff disputes within two months.</span>
+                </div>
+                <div class="achievement-item">
+                    <span class="achievement-time"><span class="cn">2026年初</span><span class="en">Early‑2026</span></span>
+                    <span class="cn">预判美国将在逮捕委内瑞拉马杜罗之后对伊朗发动军事打击或斩首行动。</span>
+                    <span class="en">Predicted that the United States would launch military strikes or decapitation operations against Iran following the arrest of Maduro of Venezuela.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+        <section id="scope">
+        <div class="container">
+            <h2>
+                <span class="cn">我们的研究范围</span>
+                <span class="en">Research Scope</span>
+            </h2>
+            <div class="works-grid">
+                <div class="work-card">
+                    <div class="card-body">
+                        <h3>ToB / ToG</h3>
+                        <ul>
+                            <li>
+                                <span class="cn">地缘政治与国际关系研究</span>
+                                <span class="en">Geopolitics & International Relations Research</span>
+                            </li>
+                            <li>
+                                <span class="cn">国际经济与贸易研究</span>
+                                <span class="en">International Economy & Trade Research</span>
+                            </li>
+                            <li>
+                                <span class="cn">财政与税收结构研究</span>
+                                <span class="en">Fiscal & Tax‑structure Research</span>
+                            </li>
+                            <li>
+                                <span class="cn">产业链周期研究</span>
+                                <span class="en">Industrial‑chain Cycle Research</span>
+                            </li>
+                            <li>
+                                <span class="cn">法理争议处理</span>
+                                <span class="en">Legal‑dispute Resolution</span>
+                            </li>
+                            <li>
+                                <span class="cn">并购研究</span>
+                                <span class="en">M&A Research</span>
+                            </li>
+                            <li>
+                                <span class="cn">利益分配调解</span>
+                                <span class="en">Interest‑allocation Mediation</span>
+                            </li>
+                            <li>
+                                <span class="cn">核心专利维护</span>
+                                <span class="en">Core‑patent Maintenance</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <div class="card-body">
+                        <h3>ToC</h3>
+                        <ul>
+                            <li>
+                                <span class="cn">医疗消费分析与改进方案</span>
+                                <span class="en">Health‑care Consumption Analysis & Improvement Plans</span>
+                            </li>
+                            <li>
+                                <span class="cn">宠物消费分析与改进方案</span>
+                                <span class="en">Pet‑consumption Analysis & Improvement Plans</span>
+                            </li>
+                            <li>
+                                <span class="cn">美容消费分析与改进方案</span>
+                                <span class="en">Beauty‑consumption Analysis & Improvement Plans</span>
+                            </li>
+                            <li>
+                                <span class="cn">文化影视消费分析与改进方案</span>
+                                <span class="en">Cultural‑film‑television Consumption Analysis & Improvement Plans</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<section id="process">
+    <div class="container">
+        <h2>
+            <span class="cn">我们的服务模式</span>
+            <span class="en">Our Service Model</span>
+        </h2>
+        <div class="process-intro">
+            <p>
+                <span class="cn">我们并非传统意义上的咨询机构。多数咨询公司由客户发起需求再启动项目，而我们采用逆向的研究与交付逻辑。</span>
+                <span class="en">We are not a traditional consulting firm. Most consulting projects start from client‑initiated demands, while we adopt a reversed research‑and‑delivery logic.</span>
+            </p>
+        </div>
+        <div class="process-timeline">
+            <div class="process-item">
+                <div class="process-number">1</div>
+                <div class="process-content">
+                    <h3>
+                        <span class="cn">自主行业样本研究</span>
+                        <span class="en">Independent Industry Research</span>
+                    </h3>
+                    <p>
+                        <span class="cn">基于海量行业样本开展独立研究，挖掘行业普遍存在的结构性问题。</span>
+                        <span class="en">We conduct independent research based on massive industry samples to identify widespread structural problems.</span>
+                    </p>
+                </div>
+            </div>
+            <div class="process-item">
+                <div class="process-number">2</div>
+                <div class="process-content">
+                    <h3>
+                        <span class="cn">推演并验证解法</span>
+                        <span class="en">Solution Derivation & Validation</span>
+                    </h3>
+                    <p>
+                        <span class="cn">站在第三方视角推导潜在解决路径，并对方案进行多轮合规、合法、合理性验证。</span>
+                        <span class="en">We derive potential solutions from a third‑party perspective and validate them repeatedly for compliance, legality and rationality.</span>
+                    </p>
+                </div>
+            </div>
+            <div class="process-item">
+                <div class="process-number">3</div>
+                <div class="process-content">
+                    <h3>
+                        <span class="cn">拆解企业具体问题</span>
+                        <span class="en">Enterprise Problem Analysis</span>
+                    </h3>
+                    <p>
+                        <span class="cn">结合目标企业的现实处境，定向搜集关联信息，拆解企业面临的具体矛盾。</span>
+                        <span class="en">We analyze the real‑world context of target enterprises, collect relevant information and dissect their specific dilemmas.</span>
+                    </p>
+                </div>
+            </div>
+            <div class="process-item">
+                <div class="process-number">4</div>
+                <div class="process-content">
+                    <h3>
+                        <span class="cn">构建多方共赢方案</span>
+                        <span class="en">Multi‑Party Win‑Win Solution</span>
+                    </h3>
+                    <p>
+                        <span class="cn">输出所有参与方都难以拒绝的务实方案。推导逻辑以打破存量博弈、长期整体利益为基石，完全不依赖人脉关系。</span>
+                        <span class="en">We deliver practical solutions difficult for all stakeholders to reject, based on breaking zero‑sum games, long‑term collective interests and no reliance on personal connections.</span>
+                    </p>
+                </div>
+            </div>
+            <div class="process-item">
+                <div class="process-number">5</div>
+                <div class="process-content">
+                    <h3>
+                        <span class="cn">主动触达并交付建议</span>
+                        <span class="en">Proactive Outreach & Guidance</span>
+                    </h3>
+                    <p>
+                        <span class="cn">主动对接企业，阐明方案下如何实现收益最大化、损失最小化，并提供可落地的行动指引。</span>
+                        <span class="en">We pro‑actively approach enterprises, explain how to maximize benefits and minimize losses, and provide actionable guidance.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+   <!--正在推进的项目板块-->
+<section id="ongoing">
+    <div class="container">
+        <h2>
+            <span class="cn">正在推进的项目</span>
+            <span class="en">Ongoing Projects</span>
+        </h2>
+        <div class="ongoing-grid">
+            <div class="ongoing-card">
+                <div class="ongoing-image">
+                    <img src="images/mine-eastafrica.jpg" 
+                         alt="东非滨海重矿砂项目" 
+                         data-alt-en="East-Africa coastal heavy mineral-sand project">
+                </div>
+                <div class="ongoing-body">
+                    <h3>
+                        <span class="cn">东非某滨海重矿砂生产商投资协议续约计划</span>
+                        <span class="en">Renewal Plan for Investment Agreement of Coastal Heavy-Mineral-Sand Producer in East Africa</span>
+                    </h3>
+                    <p>
+                        <span class="cn">针对海外矿产投资协议开展调研研判，推进投资续约相关咨询工作。</span>
+                        <span class="en">Conduct research & assessment for overseas mineral-investment agreements and provide consultation for investment-agreement renewal.</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="ongoing-card">
+                <div class="ongoing-image">
+                    <img src="images/medical-gaussian.jpg" 
+                         alt="医美行业高斯泼溅应用方案" 
+                         data-alt-en="Gaussian-Splatting application solution for medical-aesthetic industry">
+                </div>
+                <div class="ongoing-body">
+                    <h3>
+                        <span class="cn">医美行业高斯泼溅应用方案计划</span>
+                        <span class="en">Gaussian-Splatting Application-scheme Project for Medical-Aesthetic Industry</span>
+                    </h3>
+                    <p>
+                        <span class="cn">面向医美赛道，开展技术应用、市场研判与落地改进方案研究。</span>
+                        <span class="en">Carry out research on technical application, market assessment and practical improvement plans for the medical-aesthetic track.</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="ongoing-card">
+                <div class="ongoing-image">
+                    <img src="images/pet-blindbox.jpg" 
+                         alt="宠物行业与盲盒储存关联解决方案" 
+                         data-alt-en="Solution linking pet industry and blind-box storage">
+                </div>
+                <div class="ongoing-body">
+                    <h3>
+                        <span class="cn">宠物行业与盲盒储存关联解决方案</span>
+                        <span class="en">Solution Linking Pet-industry and Blind-box Storage</span>
+                    </h3>
+                    <p>
+                        <span class="cn">围绕宠物消费与盲盒商业模式交叉场景，输出行业研究与配套解决方案。</span>
+                        <span class="en">Deliver industry research and supporting solutions focusing on overlapping scenarios of pet consumption and blind-box business model.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>
+                <span class="cn">联系我们</span>
+                <span class="en">Contact Us</span>
+            </h2>
+            <div class="contact-info">
+                <p>
+                    <span class="cn">地址：香港九龙旺角弥敦道610号</span>
+                    <span class="en">Address: 610 Nathan Road, Mong Kok, Kowloon, Hong Kong</span>
+                </p>
+                <p>
+                    <span class="cn">电话：+86 18336460135</span>
+                    <span class="en">Tel: +86 18336460135</span>
+                </p>
+                <p>
+                    <span class="cn">邮箱：zzy@eutychiahk.com</span>
+                    <span class="en">Email: zzy@eutychiahk.com</span>
+                </p>
+                <p>
+                    <span class="cn">官网：eutychiahk.ltd</span>
+                    <span class="en">Website: eutychiahk.ltd</span>
+                </p>
+            </div>
+        </div>
+    </section>
+<footer>
+    <div style="max-width:1100px;margin:0 auto;padding:1.5rem 1rem;text-align:center;font-size:0.85rem;">
+        <div style="margin-bottom:0.5rem;">
+            <a href="disclaimer.html" style="color:#ffffff;text-decoration:none;margin:0 8px;">
+                <span class="cn">免责声明</span><span class="en">Disclaimer</span>
+            </a>
+            <a href="privacy.html" style="color:#ffffff;text-decoration:none;margin:0 8px;">
+                <span class="cn">隐私政策</span><span class="en">Privacy Policy</span>
+            </a>
+        </div>
+        <div>© 2026 Eutychia Strategic Advisory Limited</div>
+        <div style="margin-top:6px;opacity:0.7;font-size:0.75rem;">
+            <span class="cn">本网站内容仅作行业研究展示，不构成任何投资建议</span>
+            <span class="en">Content for industry research only, not investment advice</span>
+        </div>
+    </div>
+</footer>
+<script>
+const langToggle = document.getElementById('langToggle');
+const cnList = document.querySelectorAll('.cn');
+const enList = document.querySelectorAll('.en');
+const imgList = document.querySelectorAll('img[data-alt-en]');
+let currentLang = localStorage.getItem("siteLang") || "cn";
+
+function setLang(lang){
+    if(lang === 'cn'){
+        cnList.forEach(el=>el.style.display='inline');
+        enList.forEach(el=>el.style.display='none');
+        langToggle.innerText = "English";
+        imgList.forEach(img=>{
+            img.alt = img.getAttribute('alt');
+        })
+    }else{
+        cnList.forEach(el=>el.style.display='none');
+        enList.forEach(el=>el.style.display='inline');
+        langToggle.innerText = "中文";
+        imgList.forEach(img=>{
+            img.alt = img.dataset.altEn;
+        })
+    }
+    localStorage.setItem("siteLang",lang);
+}
+
+setLang(currentLang);
+
+langToggle.addEventListener('click',()=>{
+    currentLang = currentLang === 'cn' ? 'en' : 'cn';
+    setLang(currentLang);
+})
+</script>
+</body>
+</html>
