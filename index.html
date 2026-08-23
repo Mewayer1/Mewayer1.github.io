@@ -38,6 +38,7 @@
             display:flex;
             justify-content: space-between;
             align-items:center;
+            position: relative;
         }
         .logo {
             color:#fff;
@@ -192,12 +193,42 @@
     font-size: 0.7rem;
 }
 
-@media (max-width: 768px) {
-    .works-grid {
-        grid-template-columns: 1fr;
-    }
+/* ===== media外面：PC默认状态，电脑隐藏汉堡按钮 ===== */
+.hamburger {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 1.8rem;
+  color: #fff;
+  cursor: pointer;
 }
 
+/* ===== 手机媒体查询块 ===== */
+@media (max-width: 768px) {
+  .works-grid {
+    grid-template-columns: 1fr;
+  }
+  /*手机：显示汉堡按钮*/
+  .hamburger {
+    display: block;
+  }
+
+  /* 手机导航抽屉菜单，不要漏掉 */
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--primary);
+    flex-direction: column;
+    padding:1rem 2rem;
+    gap:1rem;
+    display: none;
+  }
+  .nav-links.open {
+    display: flex;
+  }
+}
 .process-intro {
     max-width: 800px;
     margin: 0 auto 3rem;
@@ -387,7 +418,8 @@ footer {
     <nav>
         <div class="container">
             <div class="logo">Eutychia Strategic Advisory Limited</div>
-            <div class="nav-links">
+            <button class="hamburger" id="hamburgerBtn">☰</button>
+            <div class="nav-links"  id="navMenu">
                 <a href="#home"><span class="cn">首页</span><span class="en">Home</span></a>
                 <a href="#about"><span class="cn">关于我们</span><span class="en">About Us</span></a>
                 <a href="#achievement"><span class="cn">代表研究成果</span><span class="en">Research Achievements</span></a>
@@ -760,6 +792,18 @@ langToggle.addEventListener('click',()=>{
     currentLang = currentLang === 'cn' ? 'en' : 'cn';
     setLang(currentLang);
 })
+//汉堡菜单点击逻辑
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const navMenu = document.getElementById('navMenu');
+hamburgerBtn.addEventListener('click', ()=>{
+  navMenu.classList.toggle('open');
+});
+//点击链接后自动收起移动端菜单
+document.querySelectorAll('#navMenu a').forEach(link =>{
+  link.addEventListener('click',()=>{
+    navMenu.classList.remove('open');
+  })
+});
 </script>
 </body>
 </html>
