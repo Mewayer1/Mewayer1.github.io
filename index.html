@@ -12,17 +12,17 @@
         }
         :root {
             --primary: #1a4780;
-            --primary‑light: #2b60a8;
-            --bg‑page: #f4f7fb;
-            --bg‑card: #ffffff;
-            --text‑main: #1f2937;
-            --text‑sub: #4b5563;
-            --border‑soft: #dbe4f0;
+            --primary-light: #2b60a8;
+            --bg-page: #f4f7fb;
+            --bg-card: #ffffff;
+            --text-main: #1f2937;
+            --text-sub: #4b5563;
+            --border-soft: #dbe4f0;
         }
         body {
             font-family: system-ui, -apple-system, sans-serif;
-            color: var(--text‑main);
-            background-color: var(--bg‑page);
+            color: var(--text-main);
+            background-color: var(--bg-page);
             line-height: 1.8;
         }
         nav {
@@ -107,32 +107,28 @@
             max-width:800px;
             margin:0 auto;
             font-size:1.15rem;
-            color:var(--text‑sub);
+            color:var(--text-sub);
             text-align:justify;
         }
-        /*代表成果区域*/
        .achievement-wrap{
-    max-width:820px;
-    margin:0 auto;
-}
-.achievement-item{
-    background:#ffffff;
-    border:1px solid var(--border‑soft);
-    border-radius:12px;
-    padding:1.2rem 1.6rem;
-    margin-bottom:1rem;
-    box-shadow:0 2px 8px rgba(26,71,128,0.05);
-}
-.achievement-time{
-    color:var(--primary);
-    font-weight:bold;
-    margin-right:0.5rem;
-}
-        /*语言切换基础，重要：删掉之前强制block的错误css*/
+            max-width:820px;
+            margin:0 auto;
+        }
+        .achievement-item{
+            background:#ffffff;
+            border:1px solid var(--border-soft);
+            border-radius:12px;
+            padding:1.2rem 1.6rem;
+            margin-bottom:1rem;
+            box-shadow:0 2px 8px rgba(26,71,128,0.05);
+        }
+        .achievement-time{
+            color:var(--primary);
+            font-weight:bold;
+            margin-right:0.5rem;
+        }
         .cn{display:none;}
         .en{display:none;}
-
-/* ===== 我们的研究范围 #scope 区块样式 ===== */
 #scope {
     padding: 60px 2rem;
     background-color: #f5f7fa;
@@ -192,8 +188,6 @@
     color: #2b579a;
     font-size: 0.7rem;
 }
-
-/* ===== media外面：PC默认状态，电脑隐藏汉堡按钮 ===== */
 .hamburger {
   display: none;
   background: transparent;
@@ -202,28 +196,30 @@
   color: #fff;
   cursor: pointer;
 }
-
-/* ===== 手机媒体查询块 ===== */
 @media (max-width: 768px) {
   .works-grid {
     grid-template-columns: 1fr;
   }
-  /*手机：显示汉堡按钮*/
   .hamburger {
     display: block;
+    font-size:26px;
+    color:#ffffff;
+    background-color:rgba(0,0,0,0.25);
+    padding:6px 10px;
+    border-radius:6px;
   }
-
-  /* 手机导航抽屉菜单，不要漏掉 */
   .nav-links {
     position: absolute;
     top: 100%;
-    left: 0;
-    width: 100%;
+    left:0;
+    right:0;
+    width:100%;
     background-color: var(--primary);
     flex-direction: column;
-    padding:1rem 2rem;
+    padding:1rem 1.2rem;
     gap:1rem;
     display: none;
+    box-sizing:border-box;
   }
   .nav-links.open {
     display: flex;
@@ -233,7 +229,7 @@
     max-width: 800px;
     margin: 0 auto 3rem;
     text-align: center;
-    color: var(--text‑sub);
+    color: var(--text-sub);
     font-size: 1.1rem;
     line-height: 1.8;
 }
@@ -249,7 +245,7 @@
     top: 0;
     bottom: 0;
     width: 2px;
-    background: linear-gradient(180deg, var(--primary), var(--primary‑light));
+    background: linear-gradient(180deg, var(--primary), var(--primary-light));
     opacity: 0.15;
 }
 .process-item {
@@ -257,7 +253,7 @@
     gap: 1.5rem;
     margin-bottom: 2.5rem;
     position: relative;
-    align-items: flex-start; /*修复圆圈数字位置过高，顶部对齐*/
+    align-items: flex-start;
 }
 .process-number {
     flex-shrink: 0;
@@ -272,12 +268,12 @@
     font-size: 1.3rem;
     font-weight: bold;
     z-index: 2;
-    margin-top:4px; /*微调向下偏移，对齐文字*/
+    margin-top:4px;
 }
 .process-content {
     flex: 1;
-    background: var(--bg‑card);
-    border: 1px solid var(--border‑soft);
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
     border-radius: 12px;
     padding: 1.2rem 1.4rem;
     box-shadow: 0 2px 12px rgba(26, 71, 128, 0.06);
@@ -289,7 +285,7 @@
 }
 .process-content p {
     margin: 0;
-    color: var(--text‑sub);
+    color: var(--text-sub);
     line-height: 1.7;
 }
 @media (max-width: 768px) {
@@ -309,12 +305,10 @@
         padding: 1rem 1.2rem;
     }
 }
-/* ===== 正在推进的项目 #ongoing 三列横向布局 ===== */
 #ongoing {
     padding: 60px 2rem;
     background-color: #f4f7fb;
 }
-
 #ongoing h2 {
     text-align: center;
     font-size: 2rem;
@@ -322,7 +316,6 @@
     margin-bottom: 40px;
     font-weight: bold;
 }
-
 .ongoing-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -330,7 +323,6 @@
     max-width: 1100px;
     margin: 0 auto;
 }
-
 .ongoing-card {
     background: #ffffff;
     border-radius: 12px;
@@ -340,24 +332,20 @@
     flex-direction: column;
     height: 100%;
 }
-
 .ongoing-image {
     width: 100%;
     height: 200px;
     overflow: hidden;
 }
-
 .ongoing-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
-
 .ongoing-card:hover .ongoing-image img {
     transform: scale(1.03);
 }
-
 .ongoing-body {
     padding: 24px 20px;
     flex-grow: 1;
@@ -365,48 +353,39 @@
     flex-direction: column;
     justify-content: space-between;
 }
-
 .ongoing-body h3 {
     font-size: 1.15rem;
     color: #1a4080;
     margin-bottom: 12px;
     line-height: 1.5;
 }
-
 .ongoing-body p {
     font-size: 0.95rem;
     color: #4b5563;
     line-height: 1.65;
     margin: 0;
 }
-
-/* 平板屏幕：三列自动变成两列 */
 @media (max-width: 992px) {
     .ongoing-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
-
-/* 手机屏幕：变成单列 */
 @media (max-width: 640px) {
     .ongoing-grid {
         grid-template-columns: 1fr;
     }
-
     .ongoing-image {
         height: 180px;
     }
 }
-/*联系我们 强制居中修复*/
 .contact-info {
     text-align:center !important;
     font-size:1.1rem;
-    color:var(--text‑sub);
+    color:var(--text-sub);
 }
 .contact-info p{
     margin:0.6rem 0;
 }
-
 footer {
     background-color:#164080;
     color:#ffffff;
@@ -419,7 +398,7 @@ footer {
         <div class="container">
             <div class="logo">Eutychia Strategic Advisory Limited</div>
             <button class="hamburger" id="hamburgerBtn">☰</button>
-            <div class="nav-links"  id="navMenu">
+            <div class="nav-links" id="navMenu">
                 <a href="#home"><span class="cn">首页</span><span class="en">Home</span></a>
                 <a href="#about"><span class="cn">关于我们</span><span class="en">About Us</span></a>
                 <a href="#achievement"><span class="cn">代表研究成果</span><span class="en">Research Achievements</span></a>
@@ -459,7 +438,6 @@ footer {
             </div>
         </div>
     </section>
-    <!--代表研究成果板块【修复时间：时间点做双语】-->
     <section id="achievement">
         <div class="container">
             <h2>
@@ -653,7 +631,6 @@ footer {
         </div>
     </div>
 </section>
-   <!--正在推进的项目板块-->
 <section id="ongoing">
     <div class="container">
         <h2>
@@ -663,54 +640,46 @@ footer {
         <div class="ongoing-grid">
             <div class="ongoing-card">
                 <div class="ongoing-image">
-                    <img src="images/mine-eastafrica.jpg" 
-                         alt="东非滨海重矿砂项目" 
-                         data-alt-en="East-Africa coastal heavy mineral-sand project">
+                    <img src="images/mine-eastafrica.jpg" alt="东非滨海重矿砂项目" data-alt-en="East‑Africa coastal heavy mineral‑sand project">
                 </div>
                 <div class="ongoing-body">
                     <h3>
                         <span class="cn">东非某滨海重矿砂生产商投资协议续约计划</span>
-                        <span class="en">Renewal Plan for Investment Agreement of Coastal Heavy-Mineral-Sand Producer in East Africa</span>
+                        <span class="en">Renewal Plan for Investment Agreement of Coastal Heavy‑Mineral‑Sand Producer in East Africa</span>
                     </h3>
                     <p>
                         <span class="cn">针对海外矿产投资协议开展调研研判，推进投资续约相关咨询工作。</span>
-                        <span class="en">Conduct research & assessment for overseas mineral-investment agreements and provide consultation for investment-agreement renewal.</span>
+                        <span class="en">Conduct research & assessment for overseas mineral‑investment agreements and provide consultation for investment‑agreement renewal.</span>
                     </p>
                 </div>
             </div>
-
             <div class="ongoing-card">
                 <div class="ongoing-image">
-                    <img src="images/medical-gaussian.jpg" 
-                         alt="医美行业高斯泼溅应用方案" 
-                         data-alt-en="Gaussian-Splatting application solution for medical-aesthetic industry">
+                    <img src="images/medical-gaussian.jpg" alt="医美行业高斯泼溅应用方案" data-alt-en="Gaussian‑Splatting application solution for medical‑aesthetic industry">
                 </div>
                 <div class="ongoing-body">
                     <h3>
                         <span class="cn">医美行业高斯泼溅应用方案计划</span>
-                        <span class="en">Gaussian-Splatting Application-scheme Project for Medical-Aesthetic Industry</span>
+                        <span class="en">Gaussian‑Splatting Application‑scheme Project for Medical‑Aesthetic Industry</span>
                     </h3>
                     <p>
                         <span class="cn">面向医美赛道，开展技术应用、市场研判与落地改进方案研究。</span>
-                        <span class="en">Carry out research on technical application, market assessment and practical improvement plans for the medical-aesthetic track.</span>
+                        <span class="en">Carry out research on technical application, market assessment and practical improvement plans for the medical‑aesthetic track.</span>
                     </p>
                 </div>
             </div>
-
             <div class="ongoing-card">
                 <div class="ongoing-image">
-                    <img src="images/pet-blindbox.jpg" 
-                         alt="宠物行业与盲盒储存关联解决方案" 
-                         data-alt-en="Solution linking pet industry and blind-box storage">
+                    <img src="images/pet-blindbox.jpg" alt="宠物行业与盲盒储存关联解决方案" data-alt-en="Solution linking pet industry and blind‑box storage">
                 </div>
                 <div class="ongoing-body">
                     <h3>
                         <span class="cn">宠物行业与盲盒储存关联解决方案</span>
-                        <span class="en">Solution Linking Pet-industry and Blind-box Storage</span>
+                        <span class="en">Solution Linking Pet‑industry and Blind‑box Storage</span>
                     </h3>
                     <p>
                         <span class="cn">围绕宠物消费与盲盒商业模式交叉场景，输出行业研究与配套解决方案。</span>
-                        <span class="en">Deliver industry research and supporting solutions focusing on overlapping scenarios of pet consumption and blind-box business model.</span>
+                        <span class="en">Deliver industry research and supporting solutions focusing on overlapping scenarios of pet consumption and blind‑box business model.</span>
                     </p>
                 </div>
             </div>
@@ -766,7 +735,6 @@ const cnList = document.querySelectorAll('.cn');
 const enList = document.querySelectorAll('.en');
 const imgList = document.querySelectorAll('img[data-alt-en]');
 let currentLang = localStorage.getItem("siteLang") || "cn";
-
 function setLang(lang){
     if(lang === 'cn'){
         cnList.forEach(el=>el.style.display='inline');
@@ -785,20 +753,16 @@ function setLang(lang){
     }
     localStorage.setItem("siteLang",lang);
 }
-
 setLang(currentLang);
-
 langToggle.addEventListener('click',()=>{
     currentLang = currentLang === 'cn' ? 'en' : 'cn';
     setLang(currentLang);
 })
-//汉堡菜单点击逻辑
 const hamburgerBtn = document.getElementById('hamburgerBtn');
 const navMenu = document.getElementById('navMenu');
 hamburgerBtn.addEventListener('click', ()=>{
   navMenu.classList.toggle('open');
 });
-//点击链接后自动收起移动端菜单
 document.querySelectorAll('#navMenu a').forEach(link =>{
   link.addEventListener('click',()=>{
     navMenu.classList.remove('open');
